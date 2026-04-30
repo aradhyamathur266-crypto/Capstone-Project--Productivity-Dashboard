@@ -1,9 +1,9 @@
 import { Routes, Route } from "react-router-dom";
+import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import Tasks from "./pages/Tasks";
 import Analytics from "./pages/Analytics";
 import Timer from "./pages/Timer";
-import Login from "./pages/Login";
 import News from "./pages/News";
 
 function App() {

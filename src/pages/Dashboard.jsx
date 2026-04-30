@@ -5,8 +5,10 @@ function Dashboard() {
   const [tasks, setTasks] = useState([]);
 
   useEffect(() => {
-    const savedTasks = JSON.parse(localStorage.getItem("tasks"));
-    if (savedTasks) setTasks(savedTasks);
+    const saved = JSON.parse(localStorage.getItem("tasks"));
+    if (saved) {
+      setTasks(saved);
+    }
   }, []);
 
   const total = tasks.length;
@@ -14,39 +16,32 @@ function Dashboard() {
   const pending = total - completed;
 
   return (
-    <div style={{ display: "flex" }}>
+    <div className="app-container">
       <Sidebar />
 
-      <div style={{ marginLeft: "20px", padding: "20px" }}>
+      <div className="main-content">
         <h2>Dashboard</h2>
+        <p>Welcome! Here's your productivity overview.</p>
 
-        <div style={{ display: "flex", gap: "20px" }}>
-          <div style={cardStyle}>
+        <div className="cards">
+          <div className="card">
             <h3>Total Tasks</h3>
             <p>{total}</p>
           </div>
 
-          <div style={cardStyle}>
+          <div className="card">
             <h3>Completed</h3>
-            <p>{completed}</p>
+            <p style={{ color: "green" }}>{completed}</p>
           </div>
 
-          <div style={cardStyle}>
+          <div className="card">
             <h3>Pending</h3>
-            <p>{pending}</p>
+            <p style={{ color: "red" }}>{pending}</p>
           </div>
         </div>
       </div>
     </div>
   );
 }
-
-const cardStyle = {
-  padding: "20px",
-  background: "#e2e8f0",
-  borderRadius: "10px",
-  width: "150px",
-  textAlign: "center",
-};
 
 export default Dashboard;

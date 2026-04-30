@@ -8,9 +8,16 @@ function Login() {
   };
 
   return (
-    <div>
-      <h2>Login Page</h2>
-      <button onClick={handleLogin}>Login</button>
+    <div className="login-container">
+      <div className="login-box">
+        <h2>Welcome Back</h2>
+        <p className="login-sub">Stay focused. Stay productive.</p>
+
+        <input type="text" placeholder="Username" />
+        <input type="password" placeholder="Password" />
+
+        <button onClick={handleLogin}>Login</button>
+      </div>
     </div>
   );
 }

@@ -2,22 +2,14 @@ import { Link } from "react-router-dom";
 
 function Sidebar() {
   return (
-    <div style={{
-      width: "200px",
-      height: "100vh",
-      background: "#1e293b",
-      color: "white",
-      padding: "20px"
-    }}>
-      <h2>My App</h2>
+    <div className="sidebar">
+      <h2>Productivity App</h2>
 
-      <ul style={{ listStyle: "none", padding: 0 }}>
-        <li><Link to="/dashboard" style={{ color: "white" }}>Dashboard</Link></li>
-        <li><Link to="/tasks" style={{ color: "white" }}>Tasks</Link></li>
-        <li><Link to="/analytics" style={{ color: "white" }}>Analytics</Link></li>
-        <li><Link to="/timer" style={{ color: "white" }}>Timer</Link></li>
-        <li><Link to="/news" style={{ color: "white" }}>News</Link></li>
-      </ul>
+      <Link to="/dashboard">Dashboard</Link>
+      <Link to="/tasks">Tasks</Link>
+      <Link to="/analytics">Analytics</Link>
+      <Link to="/timer">Timer</Link>
+      <Link to="/news">News</Link>
     </div>
   );
 }

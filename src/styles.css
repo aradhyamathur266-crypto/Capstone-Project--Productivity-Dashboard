@@ -1,0 +1,236 @@
+/* ===== GENERAL ===== */
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #f7f3ee;
+  color: #3e3e3e;
+}
+
+/* ===== LAYOUT ===== */
+.app-container {
+  display: flex;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar {
+  width: 220px;
+  height: 100vh;
+  background: #e8dfd6;
+  padding: 20px;
+}
+
+.sidebar h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #5c4a3d;
+}
+
+.sidebar a {
+  display: block;
+  text-decoration: none;
+  color: #5c4a3d;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 8px;
+  transition: 0.2s;
+}
+
+.sidebar a:hover {
+  background: #d6ccc2;
+}
+
+/* ===== MAIN CONTENT ===== */
+.main-content {
+  flex: 1;
+  padding: 40px;
+}
+
+/* ===== HEADINGS ===== */
+h2 {
+  color: #5c4a3d;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+/* ===== DASHBOARD ===== */
+.cards {
+  display: flex;
+  gap: 25px;
+  margin-top: 25px;
+}
+
+.card {
+  background: #fffaf5;
+  padding: 25px;
+  border-radius: 16px;
+  width: 180px;
+  text-align: center;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+}
+
+.card h3 {
+  margin-bottom: 10px;
+  color: #6b5e55;
+}
+
+.card p {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* ===== TASKS ===== */
+input {
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #d6ccc2;
+  background: #fffaf5;
+  margin-right: 10px;
+}
+
+button {
+  padding: 7px 14px;
+  border: none;
+  border-radius: 20px;
+  background: #a8a29e;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #78716c;
+}
+
+ul {
+  margin-top: 20px;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+/* ===== TIMER ===== */
+
+.timer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+}
+
+.timer-box {
+  background: #fffaf5;
+  padding: 50px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+/* Timer text */
+.timer-box h1 {
+  font-size: 64px;
+  margin-bottom: 25px;
+  color: #5c4a3d;
+  font-weight: 500;
+}
+
+/* Input */
+.timer-input {
+  margin-bottom: 20px;
+}
+
+.timer-input input {
+  width: 80px;
+  text-align: center;
+}
+
+/* Timer buttons */
+.timer-buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+/* Task item layout */
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fffaf5;
+  padding: 10px 15px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  width: 300px;
+}
+
+/* Task text */
+.task-text {
+  cursor: pointer;
+}
+
+/* Delete button (FIXED) */
+.delete-btn {
+  background: transparent;
+  color: #a8a29e;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.delete-btn:hover {
+  color: #78716c;
+}
+
+/* ===== LOGIN PAGE ===== */
+
+.login-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f7f3ee;
+}
+
+.login-box {
+  background: #fffaf5;
+  padding: 40px;
+  border-radius: 20px;
+  width: 300px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.login-box h2 {
+  margin-bottom: 10px;
+  color: #5c4a3d;
+}
+
+.login-sub {
+  font-size: 14px;
+  margin-bottom: 20px;
+  color: #8a7f76;
+}
+
+/* Inputs */
+.login-box input {
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #d6ccc2;
+  background: #fff;
+}
+
+/* Button */
+.login-box button {
+  width: 100%;
+  padding: 10px;
+  border-radius: 20px;
+  background: #a8a29e;
+  color: white;
+}
+
+.login-box button:hover {
+  background: #78716c;
+}

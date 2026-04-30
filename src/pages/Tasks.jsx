@@ -2,69 +2,82 @@ import { useState, useEffect } from "react";
 import Sidebar from "../components/Sidebar";
 
 function Tasks() {
+  const [task, setTask] = useState("");
   const [tasks, setTasks] = useState([]);
-  const [input, setInput] = useState("");
 
   // Load tasks from localStorage
   useEffect(() => {
-    const savedTasks = JSON.parse(localStorage.getItem("tasks"));
-    if (savedTasks) setTasks(savedTasks);
+    const saved = JSON.parse(localStorage.getItem("tasks"));
+    if (saved) setTasks(saved);
   }, []);
 
-  // Save tasks to localStorage
-  useEffect(() => {
-    localStorage.setItem("tasks", JSON.stringify(tasks));
-  }, [tasks]);
+  // Save tasks
+  const saveTasks = (newTasks) => {
+    setTasks(newTasks);
+    localStorage.setItem("tasks", JSON.stringify(newTasks));
+  };
 
+  // Add task
   const addTask = () => {
-    if (input.trim() === "") return;
-
-    const newTask = {
-      text: input,
-      completed: false,
-    };
-
-    setTasks([...tasks, newTask]);
-    setInput("");
+    if (!task.trim()) return;
+    const newTasks = [...tasks, { text: task, completed: false }];
+    saveTasks(newTasks);
+    setTask("");
   };
 
+  // Delete task
   const deleteTask = (index) => {
-    const updated = tasks.filter((_, i) => i !== index);
-    setTasks(updated);
+    const newTasks = tasks.filter((_, i) => i !== index);
+    saveTasks(newTasks);
   };
 
+  // Toggle complete
   const toggleComplete = (index) => {
-    const updated = [...tasks];
-    updated[index].completed = !updated[index].completed;
-    setTasks(updated);
+    const newTasks = [...tasks];
+    newTasks[index].completed = !newTasks[index].completed;
+    saveTasks(newTasks);
   };
 
   return (
-    <div style={{ display: "flex" }}>
+    <div className="app-container">
       <Sidebar />
 
-      <div style={{ marginLeft: "20px", padding: "20px" }}>
-        <h2>Task Manager</h2>
+      <div className="main-content">
+        <h2>Tasks</h2>
 
-        
-        <input
-          type="text"
-          placeholder="Enter task..."
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-        />
-        <button style={{ marginLeft: "10px" }} onClick={addTask}>Add</button>
+        {/* Input section */}
+        <div style={{ marginTop: "15px" }}>
+          <input
+            value={task}
+            onChange={(e) => setTask(e.target.value)}
+            placeholder="Enter a task..."
+          />
+          <button onClick={addTask}>Add</button>
+        </div>
 
-        
-        
+        {/* Task list */}
         {tasks.length === 0 ? (
-          <p>No tasks yet, Add one</p>
+          <p style={{ marginTop: "20px" }}>No tasks yet</p>
         ) : (
-          <ul>
-            {tasks.map((task, index) => (
-              <li key={index}>
-                <span>{task.text}</span>
-       
+          <ul style={{ marginTop: "20px", padding: 0 }}>
+            {tasks.map((t, i) => (
+              <li key={i} className="task-item">
+                <span
+                  onClick={() => toggleComplete(i)}
+                  className="task-text"
+                  style={{
+                    textDecoration: t.completed ? "line-through" : "none",
+                  }}
+                >
+                  {t.text}
+                </span>
+
+                <button
+                  className="delete-btn"
+                  onClick={() => deleteTask(i)}
+                >
+                  ✕
+                </button>
               </li>
             ))}
           </ul>
