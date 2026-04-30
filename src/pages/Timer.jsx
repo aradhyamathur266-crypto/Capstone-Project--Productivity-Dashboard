@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import Sidebar from "../components/Sidebar";
 
 function Timer() {
-  const [time, setTime] = useState(1500); // seconds
-  const [input, setInput] = useState(25); // minutes input
+  const [time, setTime] = useState(1500); 
+  const [input, setInput] = useState(25); 
   const [running, setRunning] = useState(false);
 
   useEffect(() => {

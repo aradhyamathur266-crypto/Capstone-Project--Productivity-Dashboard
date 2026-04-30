@@ -5,33 +5,30 @@ function Tasks() {
   const [task, setTask] = useState("");
   const [tasks, setTasks] = useState([]);
 
-  // Load tasks from localStorage
   useEffect(() => {
     const saved = JSON.parse(localStorage.getItem("tasks"));
     if (saved) setTasks(saved);
   }, []);
 
-  // Save tasks
+  
   const saveTasks = (newTasks) => {
     setTasks(newTasks);
     localStorage.setItem("tasks", JSON.stringify(newTasks));
   };
 
-  // Add task
+  
   const addTask = () => {
     if (!task.trim()) return;
     const newTasks = [...tasks, { text: task, completed: false }];
     saveTasks(newTasks);
     setTask("");
   };
-
-  // Delete task
   const deleteTask = (index) => {
     const newTasks = tasks.filter((_, i) => i !== index);
     saveTasks(newTasks);
   };
 
-  // Toggle complete
+  
   const toggleComplete = (index) => {
     const newTasks = [...tasks];
     newTasks[index].completed = !newTasks[index].completed;
@@ -44,8 +41,6 @@ function Tasks() {
 
       <div className="main-content">
         <h2>Tasks</h2>
-
-        {/* Input section */}
         <div style={{ marginTop: "15px" }}>
           <input
             value={task}
@@ -55,7 +50,7 @@ function Tasks() {
           <button onClick={addTask}>Add</button>
         </div>
 
-        {/* Task list */}
+        
         {tasks.length === 0 ? (
           <p style={{ marginTop: "20px" }}>No tasks yet</p>
         ) : (
